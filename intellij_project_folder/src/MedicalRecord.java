@@ -8,7 +8,8 @@ public class MedicalRecord {
         this.treatmentDetails = treatmentDetails;
         this.dateOfTreatment = dateOfTreatment;
     }
-    
+    public MedicalRecord(){};
+
     public DisasterVictim getVictim() {
         return victim;
     }
@@ -27,5 +28,10 @@ public class MedicalRecord {
 
     public void setDateOfTreatment(String dateOfTreatment) {this.dateOfTreatment = dateOfTreatment;}
 
-    public void setTreatmentDetails(String treatmentDetails) {this.treatmentDetails = treatmentDetails;}
+    public void setTreatmentDetails(String treatmentDetails) {
+    if (treatmentDetails == null || treatmentDetails.isEmpty()) {
+        throw new IllegalArgumentException("Treatment details must be provided.");
+    }
+    this.treatmentDetails = treatmentDetails;
+    }
 }

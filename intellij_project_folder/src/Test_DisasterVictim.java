@@ -1,4 +1,19 @@
+import org.junit.Test;
+import static org.junit.Assert.assertThrows;
+
 public class Test_DisasterVictim {
+    public void whenSetDateOfBirthWithInvalidFormat_thenIllegalArgumentException() {
+        DisasterVictim victim = new DisasterVictim();
+        String invalidDate = "200301-01"; // Incorrect format
+    
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+          victim.setDateOfBirth(invalidDate);
+        });
+    
+        String expectedMessage = "Date of birth must be in the format YYYY-MM-DD.";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+      }
     public static void main(String[] args) {
         System.out.println("Testing DisasterVictim Constructor Class:");
 

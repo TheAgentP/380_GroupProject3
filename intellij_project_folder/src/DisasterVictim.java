@@ -1,3 +1,5 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 public class DisasterVictim {
@@ -8,6 +10,8 @@ public class DisasterVictim {
     private Supply[] personalBelongings = new Supply[0];
 
     public DisasterVictim(String firstName, String ENTRY_DATE){this.firstName = firstName;this.ENTRY_DATE = ENTRY_DATE;}
+    public DisasterVictim(){}
+
 
     public String getFirstName() {return firstName;}
 
@@ -33,7 +37,21 @@ public class DisasterVictim {
 
     public void setLastName(String lastName) {this.lastName = lastName;}
 
-    public void setDateOfBirth(String dateOfBirth) {this.dateOfBirth = dateOfBirth;}
+    public void setDateOfBirth(String dateOfBirth) {
+        if (dateOfBirth == null) {
+        throw new IllegalArgumentException("Date of birth cannot be null.");
+    }
+    
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    dateFormat.setLenient(false);
+    
+    try {
+        dateFormat.parse(dateOfBirth); // This will throw ParseException if the date is invalid
+        this.dateOfBirth = dateOfBirth;
+    } catch (ParseException e) {
+        throw new IllegalArgumentException("Date of birth must be in the format YYYY-MM-DD.");
+    }
+    }
 
     public void setGender(String gender) {this.gender = gender;}
 

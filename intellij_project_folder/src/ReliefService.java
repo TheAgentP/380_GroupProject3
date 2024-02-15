@@ -8,6 +8,7 @@ public class ReliefService {
 
     // Made my own constructor...
     public ReliefService(String dateOfInquiry, String infoProvided){this.dateOfInquiry = dateOfInquiry;this.infoProvided = infoProvided;}
+    public ReliefService(){}
 
     public Inquirer getInquirer() {return inquirer;}
 
@@ -19,7 +20,12 @@ public class ReliefService {
 
     public String getDateOfInquiry() {return dateOfInquiry;}
 
-    public void setDateOfInquiry(String dateOfInquiry) {this.dateOfInquiry = dateOfInquiry;}
+    public void setDateOfInquiry(String dateOfInquiry) {
+        if (dateOfInquiry == null || !dateOfInquiry.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            throw new IllegalArgumentException("Date of inquiry must be a valid date in the format YYYY-MM-DD.");
+          }
+          this.dateOfInquiry = dateOfInquiry;
+        }
 
     public String getInfoProvided() {return infoProvided;}
 

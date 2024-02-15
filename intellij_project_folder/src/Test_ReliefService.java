@@ -31,4 +31,10 @@ public class Test_ReliefService {
         System.out.println("This should say test_name    -> " + test_service.getLastKnownLocation().getName());
         System.out.println("This should say test_address -> " + test_service.getLastKnownLocation().getAddress());
     }
+
+    //@Test(expected = IllegalArgumentException.class)
+    public void whenSetDateOfInquiryWithInvalidFormat_thenIllegalArgumentException() {
+        ReliefService service = new ReliefService();
+        service.setDateOfInquiry("invalid-date"); // This should throw IllegalArgumentException
+}
 }

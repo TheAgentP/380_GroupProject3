@@ -34,5 +34,11 @@ public class Test_MedicalRecord {
         System.out.println("This should say test_name2 -> " + test_record.getLocation().getName());
         System.out.println("This should say test_address2 -> " + test_record.getLocation().getAddress());
 
+        
     }
+    //@Test(expected = IllegalArgumentException.class)
+        public static void whenSetTreatmentDetailsWithEmptyString_thenIllegalArgumentException() {
+        MedicalRecord record = new MedicalRecord();
+        record.setTreatmentDetails(""); // This should throw IllegalArgumentException
+        }
 }
