@@ -81,4 +81,15 @@ public class Location {
 
 
     //public void updateLog(String Name, String Address) still needs to be defined
+    public void updateLog(String newName, String newAddress) {
+        // Update name if newName is not null or empty
+        if (newName != null && !newName.isEmpty()) {
+            this.name = newName;
+        }
+    
+        // Update address if newAddress is not null or empty
+        if (newAddress != null && !newAddress.isEmpty()) {
+            this.address = newAddress;
+        }
+    }
 }

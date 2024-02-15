@@ -1,14 +1,22 @@
 public class MedicalRecord {
     private Location location;
     private String treatmentDetails, dateOfTreatment;
+    private DisasterVictim victim;
 
     public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment){
         this.location = location;
         this.treatmentDetails = treatmentDetails;
         this.dateOfTreatment = dateOfTreatment;
     }
-    // getVictim
-    // setVictim
+    
+    public DisasterVictim getVictim() {
+        return victim;
+    }
+
+    public void setVictim(DisasterVictim victim) {
+        this.victim = victim;
+    }
+
     public Location getLocation(){return location;}
 
     public void setLocation(Location location){this.location = location;}

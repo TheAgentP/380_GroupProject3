@@ -19,19 +19,3 @@ public class Supply {
     public void setQuantity(int Quantity){quantity = Quantity;}
 
 }
-
-/*
-private String StringArray[] = new String[4];
-
-public SimpleArrays(String StringArg) {
-    Arrays.fill(StringArray, StringArg);
-}
-
-public SimpleArrays() {
-    Arrays.fill(StringArray, "Hello World");
-}
-
-public String arrayConcat() {
-    return arrayConcat(0);
-}
-*/

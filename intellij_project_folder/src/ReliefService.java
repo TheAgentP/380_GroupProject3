@@ -29,7 +29,24 @@ public class ReliefService {
 
     public void setLastKnownLocation(Location lastKnownLocation) {this.lastKnownLocation = lastKnownLocation;}
 
-    // public void printLogDetails() still needs to be defined
+    public void printLogDetails() {
+        System.out.println("Relief Service Inquiry Details:");
+        System.out.println("Date of Inquiry: " + dateOfInquiry);
+        System.out.println("Inquirer: " + (inquirer != null ? inquirer.getFirstName() + " " + inquirer.getLastName()  : "Not specified"));
+        System.out.println("Missing Person: " + (missingPerson != null ? missingPerson.getFirstName() + " " + missingPerson.getLastName() : "Not specified"));
+        System.out.println("Information Provided: " + infoProvided);
+        System.out.println("Last Known Location: " + (lastKnownLocation != null ? lastKnownLocation.getName() : "Not specified"));
+    }
 
-    // public String getLogDetails() still needs to be defined
+    // Method to get log details as a string
+    public String getLogDetails() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Relief Service Inquiry Details:\n");
+        sb.append("Date of Inquiry: ").append(dateOfInquiry).append("\n");
+        sb.append("Inquirer: ").append(inquirer != null ? inquirer.getFirstName() + " " + inquirer.getLastName() : "Not specified").append("\n");
+        sb.append("Missing Person: ").append(missingPerson != null ? missingPerson.getFirstName() + " " + missingPerson.getLastName() : "Not specified").append("\n");
+        sb.append("Information Provided: ").append(infoProvided).append("\n");
+        sb.append("Last Known Location: ").append(lastKnownLocation != null ? lastKnownLocation.getName() : "Not specified").append("\n");
+        return sb.toString();
+    }
 }
